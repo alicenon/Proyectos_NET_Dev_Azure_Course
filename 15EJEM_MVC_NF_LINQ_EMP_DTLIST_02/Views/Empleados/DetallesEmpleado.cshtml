@@ -1,0 +1,52 @@
+﻿
+@{
+    ViewBag.Title = "DetallesEmpleado";
+}
+<br />
+<br />
+<style>
+    table {
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+    th, td {
+        text-align: left;
+        padding: 8px;
+    }
+
+    th {
+        background-color: #4CAF50;
+        color: white;
+    }
+
+    tr:nth-child(even) {
+        background-color: #f2f2f2;
+    }
+
+    tr:hover {
+        background-color: #ddd;
+    }
+</style>
+
+
+<table border="1">
+    <tr>
+        <th>Apellido</th>
+        <td>@Model.APELLIDO</td>
+    </tr>
+    <tr>
+        <th>Oficio</th>
+        <td>@Model.OFICIO</td>
+    </tr>
+    <tr>
+        <th>Salario</th>
+        <td>@Model.SALARIO</td>
+    </tr>
+    <tr>
+        <th>Departamento</th>
+        <td>@Model.DEPT_NO</td>
+    </tr>
+</table>
+<br />
+@Html.ActionLink("Volver a empleados", "Index", "Empleados")

@@ -1,0 +1,24 @@
+﻿
+@{
+    ViewBag.Title = "EmpleadosHospital";
+}
+
+<h2>EmpleadosHospital</h2>
+
+<table class="table table-bordered table-striped table-hover bg-info">
+    <tr>
+        <th>APELLIDO</th>
+        <th>FUNCION</th>
+        <th>SALARIO</th>
+      
+    </tr>
+    @foreach (_38PRACTICA_ADMIN_OBJETOS_EN_DIFERENTES_VISTAS_SEGURIDAD.Models.PLANTILLA emp in Model)
+    {
+        <tr>
+            <td>@emp.APELLIDO</td>
+            <td>@emp.FUNCION</td>
+            <td>@emp.SALARIO</td>
+          
+        </tr>
+    }
+</table>

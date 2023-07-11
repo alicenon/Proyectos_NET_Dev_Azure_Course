@@ -1,0 +1,25 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Página hija</h2>
+@* con esto puede cambiar la section el menu *@
+@*@section menu
+{
+    <h3>Creando un menu personalizado</h3>
+    <div style="background-color:gainsboro">
+        <ul>
+            <li>Nuevo contenido 1</li>
+            <li>Nuevo contenido 2</li>
+        </ul>
+    </div>
+}*@
+
+
+@section inicio
+{
+    <img src='@Url.Content("~/Images/lag-cat-disk.gif")'
+         style="height:100px" title="Zona inicio en Index" />
+}
+

@@ -1,0 +1,28 @@
+﻿
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Editar departamento</h2>
+
+@using (Html.BeginForm("Update", "Departamentos", FormMethod.Post))
+{
+    <ul>
+        <li>
+            <label for="id">DeptNo</label>
+            <input type="number" name="id" value="@Model.DEPT_NO" />
+        </li>
+        <li>
+            <label for="nombre">Nombre</label>
+            <input type="text" name="nombre" value="@Model.DNOMBRE" />
+        </li>
+        <li>
+            <label for="localizacion">Localización</label>
+            <input type="text" name="localizacion" value="@Model.LOC" />
+        </li>
+    </ul>
+
+    <input type="submit" value="Editar" />
+}
+ 
+

@@ -1,0 +1,36 @@
+﻿
+@{
+    ViewBag.Title = "Desing Page";
+}
+
+<h2>Index</h2>
+
+<h3>
+    Bienvenido a la Vinoteca de la Ribera del Duero
+</h3>
+<p>
+    Como Consejo Regulador de la D.O. Ribera del Duero, nuestra función principal es
+    avalar con nuestro sello la autenticidad de los vinos de esta Denominación de Origen,
+    asegurando al consumidor que cada botella que lleva una contraetiqueta numerada
+    ha superado rigurosos controles antes de llegar a sus copas.
+</p>
+<img src="Images/Vino.jpg" />
+<br />
+<br />
+
+@section inicio
+{
+    <img src='@Url.Content("~/Images/LogoRibera.jpg")' />
+}
+
+<hr />
+@section menu
+    {
+        <h3>Creando un menu personalizado</h3>
+        <div style="background-color:gainsboro">
+            <ul>
+                <li>Nuevo contenido 1</li>
+                <li>Nuevo contenido 2</li>
+            </ul>
+        </div>
+    }

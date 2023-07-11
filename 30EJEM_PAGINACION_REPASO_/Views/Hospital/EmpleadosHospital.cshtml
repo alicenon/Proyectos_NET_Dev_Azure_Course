@@ -1,0 +1,33 @@
+﻿
+@{
+    ViewBag.Title = "EmpleadosHospital";
+}
+
+<h2>EmpleadosHospital</h2>
+
+
+<form>
+    <label>Introduzca número de hospital</label>
+    <input type="text" name="hospital" />
+    <button type="submit">Buscar empleados</button>
+</form>
+<hr />
+<table border="1">
+
+    <tr>
+        <th>Apellido</th>
+        <th>Función/Especialidad</th>
+        <th>Hospital</th>
+    </tr>
+    @foreach (var emp in Model)
+    {
+        <tr>
+            <td>@emp.APELLIDO</td>
+            <td>@emp.FUNCION</td>
+            <td>@emp.HOSPITAL_COD</td>
+        </tr>
+    }
+
+</table>
+<hr />
+@Html.Raw(ViewBag.Paginacion)

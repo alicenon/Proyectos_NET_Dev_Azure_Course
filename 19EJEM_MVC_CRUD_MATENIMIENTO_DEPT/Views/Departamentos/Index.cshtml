@@ -1,0 +1,40 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+@using _19EJEM_MVC_CRUD_MATENIMIENTO_DEPT.Models;
+@model List<DEPT>
+
+<h2>Departamentos</h2>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>DeptNo</th>
+            <th>Nombre</th>
+            <th>Localización</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (DEPT dept in Model)
+        {
+            <tr>
+                <td>@dept.DEPT_NO</td>
+                <td>@dept.DNOMBRE</td>
+                <td>@dept.LOC</td>
+                <td>
+                    @Html.ActionLink("Borrar con eventoJS", "Destroy", "Departamentos", new { id = @dept.DEPT_NO }, new { onclick = "return confirm('¿Está seguro que quiere eliminar el registro?');" })
+                    @Html.ActionLink("Borrar", "Destroy", "Departamentos", new { id = @dept.DEPT_NO }, null)
+                    @Html.ActionLink("Editar", "Edit", "Departamentos", new { id = @dept.DEPT_NO }, null)
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@Html.ActionLink("Nuevo", "New", "Departamentos")
+

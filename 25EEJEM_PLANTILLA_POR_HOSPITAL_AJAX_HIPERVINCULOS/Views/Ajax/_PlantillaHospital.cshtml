@@ -1,0 +1,40 @@
+﻿
+@model IQueryable<_25EEJEM_PLANTILLA_POR_HOSPITAL_AJAX_HIPERVINCULOS.Models.PLANTILLA>
+
+@if (Model != null)
+{
+
+    <table class="table">
+        <tr>
+            <th>
+                APELLIDO
+            </th>
+            <th>
+                SALARIO
+            </th>
+            <th>
+                HOSPITAL
+            </th>
+        </tr>
+
+        @foreach (var emp in Model)
+        {
+            <tr>
+                <td>
+                    @emp.APELLIDO
+                </td>
+                <td>
+                    @emp.SALARIO ptas
+                </td>
+                <td>
+                    @emp.HOSPITAL_COD
+                </td>
+            </tr>
+        }
+
+    </table>
+}
+else
+{
+    <h2 style="color:red">Sin empleados</h2>
+}

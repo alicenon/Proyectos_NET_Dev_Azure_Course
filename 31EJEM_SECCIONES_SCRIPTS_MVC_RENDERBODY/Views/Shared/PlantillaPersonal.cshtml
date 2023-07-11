@@ -1,0 +1,47 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>PlantillaPersonal</title>
+    @Styles.Render("~/Content/bootstrap.min.css")
+</head>
+<body>
+
+    @if (IsSectionDefined("menu"))
+    {
+        //LA PAGINA HIJA ESTA SUSTITUYENDO LA SECCION...
+        @RenderSection("smenu", true)
+    }
+    else
+    {
+        //DISEÑO QUE DESEAMOS INCLUIR EN LA PAGINA MAESTRA
+        <div style="background-color:darkgrey">
+            <ul>
+                <li>Página 1</li>
+                <li>Página 2</li>
+                <li>Página 3</li>
+            </ul>
+        </div>
+    }
+
+
+    <div style="background-color:bisque; height:100px">
+        @RenderSection("inicio", false)
+
+    </div>
+
+    <div>
+        @Html.ActionLink("Indice", "Index", "Desing")
+        <br />
+        @RenderBody()
+    </div>
+</body>
+@Scripts.Render("~/Scripts/jquery-3.4.1.min.js")
+@Scripts.Render("~/Scripts/bootstrap.min.js")
+</html>

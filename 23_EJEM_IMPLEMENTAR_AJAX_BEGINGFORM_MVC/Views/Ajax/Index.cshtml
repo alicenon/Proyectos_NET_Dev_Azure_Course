@@ -1,0 +1,35 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+@section scripts
+{
+    <script src="~/Scripts/jquery-3.4.1.js"></script>
+    <script src="~/Scripts/jquery.unobtrusive-ajax.js"></script>
+}
+
+<h2>Index</h2>
+@Ajax.BeginForm("MostrarDetalles", "Ajax",
+     new AjaxOptions
+     {
+         HttpMethod = "POST", //peticion
+         UpdateTargetId = "div1", //contains the ID of the element and then print by it method of first argument
+         InsertionMode = InsertionMode.Replace,
+         LoadingElementId = "cargando"
+     })
+
+<h1>Ejemplo Ajax MVC</h1>
+<h2>
+    Código del producto: @Html.TextBox("codigo")<br />
+    <input type="submit" value="Buscar producto" />
+    <input type="reset" value="Limpiar" />
+</h2>
+@{Html.EndForm();}
+<br />
+<img id="cargando" src="~/Images/lag-cat-disk.gif" style="display:none" />
+<br />
+<div id="div1">
+</div>

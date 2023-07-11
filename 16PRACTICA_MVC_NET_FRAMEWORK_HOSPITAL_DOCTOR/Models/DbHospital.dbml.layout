@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="DbHospital">
+  <DataContextMoniker Name="/DbHospitalDataContext" />
+  <nestedChildShapes>
+    <classShape Id="d01541b2-5f3d-4bea-b142-fa240c888dfb" absoluteBounds="2.125, 2.125, 2.375, 1.7708968098958331">
+      <DataClassMoniker Name="/DbHospitalDataContext/HOSPITAL" />
+      <nestedChildShapes>
+        <elementListCompartment Id="bd1d8dce-b5ce-4a59-b999-444cf24a0c4c" absoluteBounds="2.14, 2.585, 2.3449999999999998, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="03245ff6-9abc-4662-a1d5-f6fb41d481b5" absoluteBounds="4.875, 2, 2, 1.7708968098958331">
+      <DataClassMoniker Name="/DbHospitalDataContext/DOCTOR" />
+      <nestedChildShapes>
+        <elementListCompartment Id="cff78121-b768-4b37-861e-8b462d7081f3" absoluteBounds="4.89, 2.46, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

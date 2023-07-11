@@ -1,0 +1,28 @@
+﻿
+@{
+    ViewBag.Title = "New";
+}
+
+<h2>New</h2>
+
+<h2>Nuevo departamento</h2>
+
+@using (Html.BeginForm("Create", "Departamentos", FormMethod.Post))
+{
+    <ul>
+        <li>
+            <label for="id">DeptNo</label>
+            <input type="number" name="id" />
+        </li>
+        <li>
+            <label for="nombre">Nombre</label>
+            <input type="text" name="nombre" />
+        </li>
+        <li>
+            <label for="localizacion">Localización</label>
+            <input type="text" name="localizacion" />
+        </li>
+    </ul>
+
+    <input type="submit" value="Insertar" />
+}

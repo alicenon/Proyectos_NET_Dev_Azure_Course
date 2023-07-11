@@ -1,0 +1,22 @@
+﻿
+@{
+    ViewBag.Title = "AlmacenarSalario";
+}
+
+<h2>AlmacenarSalario</h2>
+
+@model IQueryable<_27EJEM_SESION_CESTA_EMP.Models.EMP>
+
+<h2>Almacenar Salario de empleados</h2>
+
+<ul>
+    @foreach (var emp in Model)
+    {
+        <li>
+            @Html.ActionLink(@emp.APELLIDO
+            , "AlmacenarSalario", "Empleados"
+            , new { salario = @emp.SALARIO }, new { @htmlattr = "value" })
+        </li>
+    }
+</ul>
+@Html.ActionLink("Mostrar suma salarial", "MostrarSalario", "Empleados")

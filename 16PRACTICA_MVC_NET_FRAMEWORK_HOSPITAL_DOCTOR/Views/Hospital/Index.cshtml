@@ -1,0 +1,57 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index de HOSPITAL</h2>
+
+
+<ul>
+    @foreach (_16PRACTICA_MVC_NET_FRAMEWORK_HOSPITAL_DOCTOR.Models.HOSPITAL hosp in Model)
+    {
+        <li class="btn-danger">@hosp.NOMBRE</li>
+    }
+
+
+</ul>
+
+
+<div class="container">
+    <table class="table table-dark table-hover">
+        <thead>
+            <tr>
+                <th>NOMBRE</th>
+                <th>DIRECCION</th>
+                <th>TELEFONO</th>
+                <th>ACCIONES</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (_16PRACTICA_MVC_NET_FRAMEWORK_HOSPITAL_DOCTOR.Models.HOSPITAL hosp in Model)
+            {
+                <tr>
+                    <td class="btn-info">@hosp.NOMBRE</td>
+                    <td>@hosp.DIRECCION</td>
+                    <td>@hosp.TELEFONO</td>
+                    <td>
+                        <button class="btn-warning">@Html.ActionLink("desalles", "DetailsDoctor", "Hospital", new { empno = @hosp.HOSPITAL_COD }, null) </button>
+                        <button class="btn-danger">@Html.ActionLink("eliminar", "EliminarHospital", "Hospital", new { empno = @hosp.HOSPITAL_COD }, null)</button>
+                    </td>
+                    
+                </tr>
+            }
+
+
+        </tbody>
+    </table>
+    
+           
+</div>
+
+
+
+
+
+
+
+

@@ -1,0 +1,105 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="HospitalModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'Hospital.dbo.EMPLEADOS_HOSPITAL' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <EntityType Name="EMPLEADOS_HOSPITAL">
+          <Key>
+            <PropertyRef Name="APELLIDO" />
+          </Key>
+          <Property Name="APELLIDO" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="FUNCION" Type="nvarchar" MaxLength="50" />
+          <Property Name="HOSPITAL_COD" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <Function Name="PAGINAR_EMPLEADOS_HOSPITAL" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="POSICION" Type="int" Mode="In" />
+          <Parameter Name="HOSPITAL" Type="int" Mode="In" />
+        </Function>
+        <EntityContainer Name="HospitalModelStoreContainer">
+          <EntitySet Name="EMPLEADOS_HOSPITAL" EntityType="Self.EMPLEADOS_HOSPITAL" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [EMPLEADOS_HOSPITAL].[APELLIDO] AS [APELLIDO], 
+    [EMPLEADOS_HOSPITAL].[FUNCION] AS [FUNCION], 
+    [EMPLEADOS_HOSPITAL].[HOSPITAL_COD] AS [HOSPITAL_COD]
+    FROM [dbo].[EMPLEADOS_HOSPITAL] AS [EMPLEADOS_HOSPITAL]</DefiningQuery>
+          </EntitySet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="HospitalModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="EMPLEADOS_HOSPITAL">
+          <Key>
+            <PropertyRef Name="APELLIDO" />
+          </Key>
+          <Property Name="APELLIDO" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="FUNCION" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="HOSPITAL_COD" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityContainer Name="EntidadHospital" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="EMPLEADOS_HOSPITAL" EntityType="Self.EMPLEADOS_HOSPITAL" />
+          <FunctionImport Name="PAGINAR_EMPLEADOS_HOSPITAL" ReturnType="Collection(HospitalModel.PAGINAR_EMPLEADOS_HOSPITAL_Result)">
+            <Parameter Name="POSICION" Mode="In" Type="Int32" />
+            <Parameter Name="HOSPITAL" Mode="In" Type="Int32" />
+          </FunctionImport>
+        </EntityContainer>
+        <ComplexType Name="PAGINAR_EMPLEADOS_HOSPITAL_Result">
+          <Property Type="Int64" Name="POSICION" Nullable="true" />
+          <Property Type="String" Name="APELLIDO" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="FUNCION" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="HOSPITAL_COD" Nullable="true" MaxLength="50" />
+        </ComplexType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="HospitalModelStoreContainer" CdmEntityContainer="EntidadHospital">
+          <EntitySetMapping Name="EMPLEADOS_HOSPITAL">
+            <EntityTypeMapping TypeName="HospitalModel.EMPLEADOS_HOSPITAL">
+              <MappingFragment StoreEntitySet="EMPLEADOS_HOSPITAL">
+                <ScalarProperty Name="APELLIDO" ColumnName="APELLIDO" />
+                <ScalarProperty Name="FUNCION" ColumnName="FUNCION" />
+                <ScalarProperty Name="HOSPITAL_COD" ColumnName="HOSPITAL_COD" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="PAGINAR_EMPLEADOS_HOSPITAL" FunctionName="HospitalModel.Store.PAGINAR_EMPLEADOS_HOSPITAL">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="HospitalModel.PAGINAR_EMPLEADOS_HOSPITAL_Result">
+                <ScalarProperty Name="POSICION" ColumnName="POSICION" />
+                <ScalarProperty Name="APELLIDO" ColumnName="APELLIDO" />
+                <ScalarProperty Name="FUNCION" ColumnName="FUNCION" />
+                <ScalarProperty Name="HOSPITAL_COD" ColumnName="HOSPITAL_COD" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

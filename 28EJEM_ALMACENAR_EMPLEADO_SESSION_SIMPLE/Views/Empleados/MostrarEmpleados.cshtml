@@ -1,0 +1,26 @@
+﻿
+@{
+    ViewBag.Title = "MostrarEmpleados";
+}
+
+@model IQueryable<_28EJEM_ALMACENAR_EMPLEADO_SESSION_SIMPLE.Models.EMP>
+
+<h2>Mostrar Empleados</h2>
+
+@if (Model == null)
+{ 
+    <h2 style="color:red">
+        No hay empleados almacenados en Session
+    </h2>
+}
+else
+{
+    <ul>
+        @foreach (var emp in Model)
+        {
+            <li>@emp.APELLIDO</li>
+        }
+    </ul>
+}
+@Html.ActionLink("Volver a almacenar empleados", "AlmacenarEmpleados", "Empleados")
+

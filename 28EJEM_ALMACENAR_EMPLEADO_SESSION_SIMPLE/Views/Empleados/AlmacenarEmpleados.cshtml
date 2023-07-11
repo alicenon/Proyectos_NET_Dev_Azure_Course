@@ -1,0 +1,26 @@
+﻿
+@{
+    ViewBag.Title = "AlmacenarEmpleados";
+}
+
+<h2>AlmacenarEmpleados</h2>
+
+@model IQueryable<_28EJEM_ALMACENAR_EMPLEADO_SESSION_SIMPLE.Models.EMP>
+    <h2>Almacenar datos de Empleados</h2>
+<h4 style="color:blue">
+    @ViewBag.Mensaje
+</h4>
+
+<ul>
+    @foreach (var emp in Model)
+    {
+        <li>
+            @emp.APELLIDO
+            @Htlm.ActionLink("Almacenar empleado"
+            , "AlmacenarEmpleados", "Empleados"
+              , new { empno = @emp.EMP_NO }, new { @htmlattr = "value" })
+        </li>
+    }
+</ul>
+@Html.ActionLink("Mostrar empleados seleccionados", "MostrarEmpleados", "Empleados")
+

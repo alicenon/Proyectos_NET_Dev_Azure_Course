@@ -1,0 +1,28 @@
+﻿@model List<_35EJEM_MVC_GENERAR_PDF.Models.EMP>
+
+    @{
+        ViewBag.Title = "Index";
+    }
+
+    <h2>Informe de empleados</h2>
+
+    <table class="table table-bordered">
+        <tr>
+            <th>APELLIDO</th>
+            <th>OFICIO</th>
+            <th>INFORME</th>
+        </tr>
+
+        @foreach (var emp in Model)
+        {
+            <tr>
+                <td>@emp.APELLIDO</td>
+                <td>@emp.OFICIO</td>
+                <td>
+                    @Html.ActionLink((String)@emp.APELLIDO, "InformeEmpleados"
+                   , new { empno = emp.EMP_NO, oficio = emp.OFICIO }, null)
+                </td>
+            </tr>
+        }
+    </table>
+

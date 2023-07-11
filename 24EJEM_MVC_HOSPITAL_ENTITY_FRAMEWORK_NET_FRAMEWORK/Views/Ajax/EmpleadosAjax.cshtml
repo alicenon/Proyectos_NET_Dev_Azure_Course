@@ -1,0 +1,48 @@
+﻿
+@{
+    ViewBag.Title = "EmpleadosAjax";
+
+    //    A continuación, crearemos una vista para poder filtrar los empleados.Dicha vista tendrá un formulario que llamará a un Action en el controlador y una zona HTML para dibujar, mediante Ajax, los datos encontrados mediante la vista parcial.
+    //Creamos una nueva vista llamada EmpleadosAjax.
+}
+
+<h2>Búsqueda de Empleados con Ajax</h2>
+@*
+    CREAMOS UN FORMULARIO MEDIANTE AJAX, QUE SE ENCARGARA
+    DE LLAMAR A UN ACTION Y MOSTRAR LOS DATOS EN UN DIV HTML.
+*@
+@using (Ajax.BeginForm("FiltrarEmpleados"
+    , new AjaxOptions { HttpMethod = "POST", UpdateTargetId = "divempleados" }))
+{
+    <div class="form-horizontal">
+        <h4>Filtro de empleados</h4>
+        <hr />
+
+        <div class="form-group">
+            <div class="col-md-10">
+                <label>Apellido: </label>
+                <input type="text" name="apellido" class="form-control" />
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Buscar empleados" class="btn btn-info" />
+            </div>
+        </div>
+    </div>
+}
+
+@* div html PARA actualizar las búsquedas con AJAX *@
+<div id="divempleados">
+</div>
+
+
+
+@section scripts
+{
+    @Scripts.Render("~/Scripts/jquery-3.4.1.js")
+    @Scripts.Render("~/Scripts/jquery.unobtrusive-ajax.js")
+}
+
+

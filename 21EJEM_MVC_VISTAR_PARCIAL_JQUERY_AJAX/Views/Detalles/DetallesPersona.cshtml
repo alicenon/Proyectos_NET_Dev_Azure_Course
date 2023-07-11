@@ -1,0 +1,25 @@
+﻿
+@model  IEnumerable<_21EJEM_MVC_VISTAR_PARCIAL_JQUERY_AJAX.Models.Persona>
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Detalles de las personas</title>
+</head>
+<body>
+    <article>
+        <dl>
+            @foreach (var persona in Model)
+            {
+                <dt><b>@persona.Nombre</b></dt>
+                <dd>Apellidos: @persona.Apellidos</dd>
+                <dd>Edad: @persona.Edad</dd>
+                <dd>Deporte favorito: @persona.DeporteFavorito</dd>
+            }
+        </dl>
+    </article>
+</body>
+</html>

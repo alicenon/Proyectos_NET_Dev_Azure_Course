@@ -1,0 +1,118 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="HospitalModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="HOSPITAL">
+          <Key>
+            <PropertyRef Name="HOSPITAL_COD" />
+          </Key>
+          <Property Name="HOSPITAL_COD" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="NOMBRE" Type="nvarchar" MaxLength="50" />
+          <Property Name="DIRECCION" Type="nvarchar" MaxLength="50" />
+          <Property Name="TELEFONO" Type="nvarchar" MaxLength="50" />
+          <Property Name="NUM_CAMA" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="PLANTILLA">
+          <Key>
+            <PropertyRef Name="EMPLEADO_NO" />
+          </Key>
+          <Property Name="HOSPITAL_COD" Type="nvarchar" MaxLength="50" />
+          <Property Name="SALA_COD" Type="nvarchar" MaxLength="50" />
+          <Property Name="EMPLEADO_NO" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="APELLIDO" Type="nvarchar" MaxLength="50" />
+          <Property Name="FUNCION" Type="nvarchar" MaxLength="50" />
+          <Property Name="T" Type="nvarchar" MaxLength="50" />
+          <Property Name="SALARIO" Type="int" />
+        </EntityType>
+        <EntityContainer Name="HospitalModelStoreContainer">
+          <EntitySet Name="HOSPITAL" EntityType="Self.HOSPITAL" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PLANTILLA" EntityType="Self.PLANTILLA" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="HospitalModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="HOSPITAL">
+          <Key>
+            <PropertyRef Name="HOSPITAL_COD" />
+          </Key>
+          <Property Name="HOSPITAL_COD" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="NOMBRE" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DIRECCION" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TELEFONO" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="NUM_CAMA" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="PLANTILLA">
+          <Key>
+            <PropertyRef Name="EMPLEADO_NO" />
+          </Key>
+          <Property Name="HOSPITAL_COD" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="SALA_COD" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="EMPLEADO_NO" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="APELLIDO" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="FUNCION" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="T" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="SALARIO" Type="Int32" />
+        </EntityType>
+        <EntityContainer Name="EntidadHospital" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="HOSPITAL" EntityType="Self.HOSPITAL" />
+          <EntitySet Name="PLANTILLA" EntityType="Self.PLANTILLA" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="HospitalModelStoreContainer" CdmEntityContainer="EntidadHospital">
+          <EntitySetMapping Name="HOSPITAL">
+            <EntityTypeMapping TypeName="HospitalModel.HOSPITAL">
+              <MappingFragment StoreEntitySet="HOSPITAL">
+                <ScalarProperty Name="HOSPITAL_COD" ColumnName="HOSPITAL_COD" />
+                <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
+                <ScalarProperty Name="DIRECCION" ColumnName="DIRECCION" />
+                <ScalarProperty Name="TELEFONO" ColumnName="TELEFONO" />
+                <ScalarProperty Name="NUM_CAMA" ColumnName="NUM_CAMA" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PLANTILLA">
+            <EntityTypeMapping TypeName="HospitalModel.PLANTILLA">
+              <MappingFragment StoreEntitySet="PLANTILLA">
+                <ScalarProperty Name="HOSPITAL_COD" ColumnName="HOSPITAL_COD" />
+                <ScalarProperty Name="SALA_COD" ColumnName="SALA_COD" />
+                <ScalarProperty Name="EMPLEADO_NO" ColumnName="EMPLEADO_NO" />
+                <ScalarProperty Name="APELLIDO" ColumnName="APELLIDO" />
+                <ScalarProperty Name="FUNCION" ColumnName="FUNCION" />
+                <ScalarProperty Name="T" ColumnName="T" />
+                <ScalarProperty Name="SALARIO" ColumnName="SALARIO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

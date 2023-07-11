@@ -1,0 +1,89 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+@*@foreach (_18PRACTICA_MVC_NET_FRAME_PLANTILLA_POR_HOSPITAL.Models.PLANTILLA item in Model)
+    {
+        @item.APELLIDO
+    }*@
+
+<form method="post">
+    <h4>Introduzca los datos </h4>
+    <table class="table table-bordered table-responsive btn-primary">
+        <tr>
+            <th>Introduzca un Hospital</th>
+            <td>
+                <input type="text" name="txthospitalcod" class="text-danger" />
+            </td>
+            <td>
+                <input type="submit" value="Enviar información" class="btn btn-info" />
+            </td>
+        </tr>
+
+    </table>
+</form>
+
+@if (Model is List<_18PRACTICA_MVC_NET_FRAME_PLANTILLA_POR_HOSPITAL.Models.HOSPITAL>)
+{
+    if (Model is List<_18PRACTICA_MVC_NET_FRAME_PLANTILLA_POR_HOSPITAL.Models.HOSPITAL>)
+    {
+        <div class="container">
+            <table class="table table-dark table-hover">
+                <thead>
+                    <tr>
+                        <th>NOMBRE</th>
+                        <th>DIRECCION</th>
+                        <th>TELEFONO</th>
+                        <th>ACCIONES</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (_18PRACTICA_MVC_NET_FRAME_PLANTILLA_POR_HOSPITAL.Models.HOSPITAL hosp in Model)
+                    {
+                        <tr>
+                            <td class="btn-info">@hosp.NOMBRE</td>
+                            <td>@hosp.DIRECCION</td>
+                            <td>@hosp.TELEFONO</td>
+
+
+                        </tr>
+                    }
+
+                </tbody>
+            </table>
+        </div>
+
+
+    }
+    else
+    { @ViewData["Message"]}
+
+    }
+
+
+
+else
+{
+    <table class="table table-bordered">
+        <tr>
+            <th>APELLIDO</th>
+            <th>FUNCION</th>
+            <th>HOSPITAL</th>
+        </tr>
+        @foreach (_18PRACTICA_MVC_NET_FRAME_PLANTILLA_POR_HOSPITAL.Models.PLANTILLA item in Model)
+        {
+            <tr>
+                <td>@item.APELLIDO</td>
+                <td>@item.FUNCION</td>
+                <td>@item.HOSPITAL_COD</td>
+
+            </tr>
+        }
+    </table>
+}
+
+
+
+

@@ -1,0 +1,37 @@
+﻿
+@model IQueryable<_26PRACTICA_MVC_EMPLEADOS_POR_OFICIO_AJAX.Models.EMP>
+
+@if (Model != null)
+{
+
+    <table class="table bg-primary">
+        <tr>
+            <th>
+                APELLIDO
+            </th>
+            <th>
+                Empleo
+            </th>
+        </tr>
+
+        @foreach (var emp in Model)
+        {
+            <tr>
+                <td>
+                    @emp.APELLIDO
+                </td>
+                <td>
+                    @emp.OFICIO
+                </td>
+            </tr>
+        }
+
+    </table>
+}
+else
+{
+    <div class="btn-danger">Sin empleados</div>
+}
+
+
+

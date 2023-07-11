@@ -1,0 +1,58 @@
+﻿
+@{
+    ViewBag.Title = "HospitalPlatillaAjax";
+}
+
+@model IQueryable<_25EEJEM_PLANTILLA_POR_HOSPITAL_AJAX_HIPERVINCULOS.Models.HOSPITAL>
+
+<h2>HospitalPlantillaAjax</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            HOSPITAL
+        </th>
+        <th>
+            DIRECCION
+        </th>
+        <th>
+            TELEFONO
+        </th>
+        <th>
+            FILTRO
+        </th>
+    </tr>
+
+    @foreach (var h in Model)
+    {
+        <tr>
+            <td>
+                @h.NOMBRE
+            </td>
+            <td>
+                @h.DIRECCION
+            </td>
+            <td>
+                @h.TELEFONO
+            </td>
+            <td>
+                como hipervinculo, primer argumento se muestra en pantalla, 2do seria el metodo
+                @Ajax.ActionLink("Mostrar Plantilla", "FiltrarPlantilla"
+                , new { hospitalcod = h.HOSPITAL_COD }
+                , new AjaxOptions { HttpMethod = "GET", UpdateTargetId = "divplantilla" }
+                , new { @htmlattr = "value" })
+            </td>
+        </tr>
+    }
+
+</table>
+
+<hr />
+<div id="divplantilla">
+</div>
+
+@section scripts
+{
+    @Scripts.Render("~/Scripts/jquery-3.4.1.js")
+    @Scripts.Render("~/Scripts/jquery.unobtrusive-ajax.js")
+}

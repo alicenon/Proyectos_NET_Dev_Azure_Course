@@ -1,0 +1,34 @@
+﻿
+@{
+    ViewBag.Title = "Inicio";
+}
+
+<h2>Inicio</h2>
+<form method="post" action="/Empleado/ResultadoInicio">
+    <h4>Introduzca los datos </h4>
+    <table border="1">
+        <tr>
+            <th>Nombre</th>
+            <td>
+                <input type="text" name="txtnombre" />
+            </td>
+        </tr>
+        <tr>
+            <th>Apellido</th>
+            <td>
+                <input type="text" name="txtapellido" />
+            </td>
+        </tr>
+        <tr>
+            <th>Edad</th>
+            <td>
+                <input type="text" name="txtedad" />
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <input type="submit" value="Enviar información" />
+            </td>
+        </tr>
+    </table>
+</form>

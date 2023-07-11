@@ -1,0 +1,37 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+@using _22PRACTICA_AJAX_VISTAS_PARCIALES_HOSPITALES.Models;
+@model List<HOSPITAL>
+@foreach (HOSPITAL item in Model)
+{
+    <p>@item.DIRECCION</p>
+    <p>@item.NOMBRE</p>
+}
+<h2>Index</h2>
+<div class="container  " style="background-color:aliceblue">
+    <div class="bg-primary"><h3>Página Principal de Detalles:</h3></div>
+
+    <ol class="round">
+        <li class="one">
+            <h3>HOSPITALES</h3>
+            <button type="button" id="btnhospitales" class="btn-info">HOSPITALES</button>
+            <div id="detallehospitales">hola</div>
+        </li>
+
+        <li class="two ">
+            <h3>DOCTORES</h3>
+            <button type="button" id="btnlenguajes" class="bg-info">DOCTORES</button>
+            <div id="detallelenguajes" style="display:none"></div>
+        </li>
+        <li class="three">
+            <h3>PLANTILLA</h3>
+            <button type="button" id="btnlenguajes" class="bg-info ">PLANTILLA</button>
+            <div id="detallelenguajes" style="display:none"></div>
+        </li>
+    </ol>
+</div>
+<script src='@Url.Content("~/Scripts/JavaScript.js")' type="text/javascript"></script>
+
+

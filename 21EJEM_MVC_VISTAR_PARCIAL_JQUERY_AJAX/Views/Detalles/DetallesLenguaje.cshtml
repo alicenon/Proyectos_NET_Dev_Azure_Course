@@ -1,0 +1,24 @@
+﻿
+@model IEnumerable<_21EJEM_MVC_VISTAR_PARCIAL_JQUERY_AJAX.Models.Lenguajes>
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Detalles de los lenguajes</title>
+</head>
+<body>
+    <article>
+        <dl>
+            @foreach (var lenguaje in Model)
+            {
+                <dt><b>@lenguaje.Nombre</b></dt>
+                <dd>Tipo: @lenguaje.Tipo</dd>
+                <dd>Proveedor: @lenguaje.Proveedor</dd>
+            }
+        </dl>
+    </article>
+</body>
+</html>

@@ -1,0 +1,55 @@
+﻿
+@{
+    ViewBag.Title = "MostrarEmpleados";
+}
+@model IQueryable<_29PRACTICA_SESSION_EMP.Models.EMP>
+<h2>MostrarEmpleados</h2>
+
+@if (Session["EMPLEADOS"] == null)
+{
+    <h2 class="bg-danger">
+        No hay empleados en la Session
+    </h2>
+}
+else
+{
+
+    foreach (var item in Model)
+    {
+        <dl>
+            <dt style="display:block">
+                @item.APELLIDO
+
+            </dt>
+            <dd style="display:block;margin-left:40px">
+                @item.OFICIO
+                <div class="bg-danger">
+                    @Html.ActionLink("Eliminar Empleado"
+                 , "MostrarEmpleados", "Empleados"
+                 , new { eliminar = @item.EMP_NO }, new { @htmlattr = "value" })
+
+                </div>
+
+
+
+        </dl>
+    }
+
+}
+<div class="bg-success">@Session["SUMASALARIAL"].ToString()</div>
+
+@if (Session["EJEM"] == null)
+{
+    <h2 style="color:red">
+        No hay ningún valor almacenado en la sesión
+    </h2>
+}
+else
+{
+    <h2 style="color:blue">
+        Suma Salarial: @Session["EJEM"].ToString()
+    </h2>
+}
+
+
+@Html.ActionLink("Volver a almacenar empleados", "AlmacenarEmpleados", "Empleados")

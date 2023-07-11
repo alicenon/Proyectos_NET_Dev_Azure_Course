@@ -1,0 +1,78 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>MasterPage</title>
+    @Styles.Render("~/Content/bootstrap.min.css")
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3 btn-warning">
+                @Html.ActionLink("Protos", "Protos", "Design")
+                <br />
+                @Html.ActionLink("PradoRey", "Protos", "Design")
+                <br />
+                @Html.ActionLink("Protos", "Protos", "Design")
+                <br />
+                @Html.ActionLink("PradoRey", "Protos", "Design")
+                <br />
+                @Html.ActionLink("Protos", "Protos", "Design")
+                <br />
+                @Html.ActionLink("PradoRey", "Protos", "Design")
+                <br />
+                @Html.ActionLink("Protos", "Protos", "Design")
+                <br />
+                @Html.ActionLink("PradoRey", "Protos", "Design")
+                <br />
+
+            </div>
+
+            <div class="col-md-9 btn-info ">
+                @RenderBody()
+
+
+                <div>
+                    @RenderSection("inicio", false)
+
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+    @if (IsSectionDefined("menu"))
+    {
+        //LA PAGINA HIJA ESTA SUSTITUYENDO LA SECCION...
+        @RenderSection("menu", true)
+    }
+    else
+    {
+        //DISEÑO QUE DESEAMOS INCLUIR EN LA PAGINA MAESTRA
+        <div>
+            <ul>
+                <li>   @Html.ActionLink("PradoRey", "Protos", "Design")</li>
+                <li>   @Html.ActionLink("PradoRey", "Protos", "Design")</li>
+                <li>   @Html.ActionLink("PradoRey", "Protos", "Design")</li>
+            </ul>
+        </div>
+    }
+
+
+
+
+
+
+
+</body>
+@Scripts.Render("~/Scripts/jquery-3.4.1.min.js")
+@Scripts.Render("~/Scripts/bootstrap.min.js")
+</html>
+

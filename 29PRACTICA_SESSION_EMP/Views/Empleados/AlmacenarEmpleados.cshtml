@@ -1,0 +1,30 @@
+﻿
+@{
+    ViewBag.Title = "AlmacenarEmpleados";
+}
+@model IQueryable<_29PRACTICA_SESSION_EMP.Models.EMP>
+<h2>AlmacenarEmpleados</h2>
+
+
+<ul>
+    @foreach (var item in Model)
+    {
+        <li>
+            @item.APELLIDO
+
+            @Html.ActionLink("Almacenar empleado"
+                   , "AlmacenarEmpleados", "Empleados"
+                     , new { empno = @item.EMP_NO, salario = @item.SALARIO }, new { @htmlattr = "value" })
+
+        </li>
+    }
+</ul>
+
+
+<h2 class="bg-primary">
+    @ViewBag.Mensaje
+</h2>
+
+@Html.ActionLink("Mostrar  empleados seleccionados", "MostrarEmpleados", "Empleados")
+
+

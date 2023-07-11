@@ -1,0 +1,55 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+@*@using _26PRACTICA_MVC_EMPLEADOS_POR_OFICIO_AJAX.Models;*@
+@*@model IQueryable<_26PRACTICA_MVC_EMPLEADOS_POR_OFICIO_AJAX.Models.EMP>*@
+
+
+@model List<String>
+
+<h2> Obtener empleados por empleados</h2>
+
+<table class="table bg-info">
+    <tr>
+        <th>
+            Empleo
+        </th>
+    </tr>
+
+    @foreach (var h in Model)
+    {
+        <tr>
+            <td>
+                @h
+            </td>
+            <td>
+                @Ajax.ActionLink("Mostrar Empleados", "BuscarEmpleo"
+                , new { oficio = h }
+                , new AjaxOptions { HttpMethod = "GET", UpdateTargetId = "divplantilla" }
+                , null)
+            </td>
+        </tr>
+    }
+
+</table>
+
+<hr />
+<div id="divplantilla">
+</div>
+
+@section scripts
+{
+    @Scripts.Render("~/Scripts/jquery-1.10.2.js")
+    @Scripts.Render("~/Scripts/jquery.unobtrusive-ajax.js")
+}
+
+
+
+
+
+
+<h2></h2>

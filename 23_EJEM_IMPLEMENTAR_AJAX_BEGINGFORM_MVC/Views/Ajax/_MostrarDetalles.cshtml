@@ -1,0 +1,23 @@
+﻿
+
+@{
+    ViewBag.Title = "Mostrar detalles";
+}
+
+@model _23_EJEM_IMPLEMENTAR_AJAX_BEGINGFORM_MVC.Models.Producto
+
+<h2>Mostrar detalles</h2>
+
+@if (Model.Codigo == null)
+{
+    <h1>No existe el producto</h1>
+}
+else
+{
+    <h1>Detalles de producto</h1>
+    <h2>
+        Código del producto: @Model.Codigo<br />
+        Nombre del producto: @Model.Nombre<br />
+        Cantidad en stock: @Model.Cantidad<br />
+    </h2>
+}

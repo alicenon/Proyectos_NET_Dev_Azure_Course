@@ -1,0 +1,22 @@
+﻿
+@{
+    ViewBag.Title = "MostrarSalario";
+}
+
+<h2>MostrarSalario</h2>
+
+<h2>Mostrar Suma Salarial</h2>
+
+@if (Session["SUMASALARIAL"] == null)
+{
+    <h2 style="color:red">
+        No hay ningún valor almacenado en la sesión
+    </h2>
+}
+else
+{
+    <h2 style="color:blue">
+        Suma Salarial: @Session["SUMASALARIAL"].ToString()
+    </h2>
+}
+@Html.ActionLink("Volver a empleados", "AlmacenarSalario", "Empleados")

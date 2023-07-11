@@ -1,0 +1,39 @@
+﻿@model IQueryable<_24EJEM_MVC_HOSPITAL_ENTITY_FRAMEWORK_NET_FRAMEWORK.Models.EMP>
+
+@if (Model != null)
+{
+
+    <table class="table">
+        <tr>
+            <th>
+                APELLIDO
+            </th>
+            <th>
+                OFICIO
+            </th>
+            <th>
+                SALARIO
+            </th>
+        </tr>
+
+        @foreach (var emp in Model)
+        {
+            <tr>
+                <td>
+                    @emp.APELLIDO
+                </td>
+                <td>
+                    @emp.OFICIO
+                </td>
+                <td>
+                    @emp.SALARIO ptas
+                </td>
+            </tr>
+        }
+
+    </table>
+}
+else
+{
+    <h2 style="color:red">Sin empleados</h2>
+}

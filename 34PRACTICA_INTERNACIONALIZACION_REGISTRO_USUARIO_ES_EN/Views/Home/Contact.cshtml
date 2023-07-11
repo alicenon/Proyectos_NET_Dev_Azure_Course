@@ -1,0 +1,29 @@
+﻿@{
+    ViewBag.Title = "Contact";
+}
+<h2>@ViewBag.Title.</h2>
+<h3>@ViewBag.Message</h3>
+
+
+<address>
+    <strong>Support:</strong>   <a href="mailto:Support@example.com">Support@example.com</a><br />
+    <strong>Marketing:</strong> <a href="mailto:Marketing@example.com">Marketing@example.com</a>
+</address>
+
+
+<form>
+    <div class="form-group">
+        <label for="nombre">@ViewBag.Nombre</label>
+        <input type="text" class="form-control" id="nombre" placeholder="@ViewBag.PholderNombre">
+    </div>
+    <div class="form-group">
+        <label for="apellido1">@ViewBag.Apellido1</label>
+        <input type="text" class="form-control" id="apellido1" placeholder="@ViewBag.PholderPrimero">
+    </div>
+    <div class="form-group">
+        <label for="apellido2">@ViewBag.Apellido2</label>
+        <input type="text" class="form-control" id="apellido2" placeholder="@ViewBag.PholderSegundo">
+    </div>
+
+    <button type="button" class="btn btn-primary" onclick="enviarFormulario()">OK</button>
+</form>

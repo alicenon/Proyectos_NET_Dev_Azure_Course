@@ -1,0 +1,33 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+
+}
+
+<h2>Index</h2>
+
+@model List<_15EJEM_MVC_NF_LINQ_EMP_DTLIST_02.Models.EMP>
+
+<h2>Lista de empleados</h2>
+<div></div>
+<ul>
+    @foreach (_15EJEM_MVC_NF_LINQ_EMP_DTLIST_02.Models.EMP emp in Model)
+    {
+        <li>
+            @emp.APELLIDO
+            @Html.ActionLink("Detalles", "DetallesEmpleado", "Empleados",
+            new { empno = @emp.EMP_NO }, null)
+        </li>
+
+    }
+   
+</ul>
+
+<ul>
+    @foreach (_15EJEM_MVC_NF_LINQ_EMP_DTLIST_02.Models.EMP item in Model)
+    {
+        <li>
+            @item.OFICIO
+        </li>
+    }
+</ul>

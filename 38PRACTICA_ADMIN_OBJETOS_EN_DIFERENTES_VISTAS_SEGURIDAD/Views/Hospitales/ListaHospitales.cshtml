@@ -1,0 +1,33 @@
+﻿
+@{
+    ViewBag.Title = "ListaHospitales";
+}
+
+<h2>ListaHospitales</h2>
+
+
+<table class="table table-bordered table-striped table-hover bg-info">
+    <tr >
+        <th>NOMBRE</th>
+        <th>DIRECCION</th>
+        <th>TELEFONO</th>
+        <th>CAMAS</th>
+        <th>DETALLES</th>
+    </tr>
+    @foreach (_38PRACTICA_ADMIN_OBJETOS_EN_DIFERENTES_VISTAS_SEGURIDAD.Models.HOSPITAL emp in Model)
+    {
+        <tr>
+            <td>@emp.NOMBRE</td>
+            <td>@emp.DIRECCION</td>
+            <td>@emp.TELEFONO</td>
+            <td>@emp.NUM_CAMA</td>
+            <td>
+                @Html.ActionLink("PLANTILLA", "EmpleadosHospital", "Hospitales", new {ID = emp.HOSPITAL_COD}, null)
+                @Html.ActionLink("DOCTORES", "EmpleadosHospital", "Hospitales")
+                   
+            </td>
+        </tr>
+    }
+    </table>
+
+

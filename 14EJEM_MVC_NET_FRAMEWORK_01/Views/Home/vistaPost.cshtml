@@ -1,0 +1,31 @@
+﻿
+@{
+    ViewBag.Title = "vistaPost";
+}
+
+<h2>VistaPost</h2>
+<form method="post">
+    <h4>Introduzca los datos de su vehículo</h4>
+    <table border="1">
+        <tr>
+            <th>Marca</th>
+            <td>
+                <input type="text" name="txtmarca" />
+            </td>
+        </tr>
+        <tr>
+            <th>Modelo</th>
+            <td>
+                <input type="text" name="txtmodelo" />
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <input type="submit" value="Enviar información" />
+            </td>
+        </tr>
+    </table>
+</form>
+<h4>@ViewBag.Marca</h4>
+<h4>@ViewBag.Modelo</h4>
+

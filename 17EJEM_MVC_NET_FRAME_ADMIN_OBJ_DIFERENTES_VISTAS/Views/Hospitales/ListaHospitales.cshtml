@@ -1,0 +1,35 @@
+﻿
+@{
+    ViewBag.Title = "ListaHospitales";
+}
+
+<h2>ListaHospitales</h2>
+
+<table class="table table-bordered">
+    <tr>
+        <th>NOMBRE</th>
+        <th>DIRECCION</th>
+        <th>TELEFONO</th>
+        <th>CAMAS</th>
+        <th>DETALLES</th>
+    </tr>
+    @foreach (_17EJEM_MVC_NET_FRAME_ADMIN_OBJ_DIFERENTES_VISTAS.Models.HOSPITAL h in Model)
+    {
+        <tr>
+            <td>@h.NOMBRE</td>
+            <td>@h.DIRECCION</td>
+            <td>@h.TELEFONO</td>
+            <td>@h.NUM_CAMA</td>
+            <td>
+                @Html.ActionLink("Plantilla", "EmpleadosHospital", "Hospitales",
+                new { idhospital = @h.HOSPITAL_COD, tabla = "PLANTILLA" }
+                , new { @htmlattr = "value" })
+
+                @Html.ActionLink("Doctores", "EmpleadosHospital", "Hospitales"
+                , new { idhospital = @h.HOSPITAL_COD, tabla = "DOCTOR" }
+             , new { @htmlattr = "value" })
+
+            </td>
+        </tr>
+    }
+</table>
